@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Inria Sans';
+  src:
+    url('/fonts/InriaSans-Regular.ttf') format('truetype'),
+    url('/fonts/InriaSans-Bold.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter_24pt-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-variant: normal;
+  font-style: normal;
+}
+
+@layer utilities {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  /* Used for debugging only */
+  .quick-border {
+    border: solid red 2px;
+  }
+}
