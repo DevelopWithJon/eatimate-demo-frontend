@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+version https://git-lfs.github.com/spec/v1
+oid sha256:fbaab6ee9bdff7d61eca1aeb45ac409800fb496accf2f1eabb03509e15fe7132
+size 597
+=======
 import { NextResponse } from 'next/server';
 import { authMiddleware } from '@/lib/auth/authMiddleware';
 
@@ -21,3 +26,4 @@ export function middleware(request) {
 export const config = {
   matcher: ['/', '/dashboard', '/report/:path*'],
 };
+>>>>>>> 7f1fe6d483b3580b1d12e3b284685f4b1b690054

@@ -24,7 +24,7 @@ const SplashNavBar = () => {
           Login
         </a>
         <a
-          href='/sign-up'
+          href='/payment'
           className='rounded-md bg-light-primary px-3 py-2 text-lg text-white hover:bg-light-primary_light'
         >
           Sign Up
