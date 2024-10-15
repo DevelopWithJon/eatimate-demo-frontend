@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+version https://git-lfs.github.com/spec/v1
+oid sha256:9d4a90fbadbe50a52debf49668a60b9fdc8397e9d8ac4688531166d1f9ca5d21
+size 1307
+=======
 /** @type {import('tailwindcss').Config} */
 export const content = [
   './app/**/*.{js,ts,jsx,tsx,mdx}',
@@ -45,3 +50,4 @@ export const theme = {
 export const plugins = [];
 
 export const darkMode = 'selector'; // Configures Dark Mode when the HTML tag has class="dark" set.
+>>>>>>> 7f1fe6d483b3580b1d12e3b284685f4b1b690054
