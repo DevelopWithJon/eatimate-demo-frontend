@@ -5,10 +5,19 @@ import { useParams } from 'next/navigation';
 import ReportHighlight from '@components/ReportHighlight';
 import Formatter from '@lib/formatterClass';
 import { LineChart, DonutChart } from '@lib/chart';
+<<<<<<< HEAD
+import Chart from 'chart.js/auto'; // Ensure Chart.js is imported
+=======
+>>>>>>> 7f1fe6d483b3580b1d12e3b284685f4b1b690054
 
 const Page = () => {
   const { id } = useParams();
   const [report, setReport] = useState(null);
+<<<<<<< HEAD
+  const [schedule, setSchedule] = useState([]);
+  const [chartInstance, setChartInstance] = useState(null); // State to hold the chart instance
+=======
+>>>>>>> 7f1fe6d483b3580b1d12e3b284685f4b1b690054
 
   useEffect(() => {
     if (id) {
@@ -21,6 +30,16 @@ const Page = () => {
     }
   }, [id]);
 
+<<<<<<< HEAD
+  useEffect(() => {
+    if (report) {
+      const calculatedSchedule = calculateAmortizationSchedule(report);
+      setSchedule(calculatedSchedule);
+    }
+  }, [report]);
+
+=======
+>>>>>>> 7f1fe6d483b3580b1d12e3b284685f4b1b690054
   // Helper function to create full address
   const createFullAddress = (report) => {
     const { address, city, state, zip } = report;
@@ -49,6 +68,36 @@ const Page = () => {
     };
   };
 
+<<<<<<< HEAD
+  function calculateAmortizationSchedule(report) {
+    const { interest, all_loan_balance } = report;
+    const loanTermYears = 30;
+    const loanAmount = all_loan_balance[0];
+    const monthlyInterestRate = interest / 12; // Convert percentage to decimal
+    const numberOfPayments = loanTermYears * 12;
+    const monthlyPayment = loanAmount * (monthlyInterestRate / (1 - Math.pow(1 + monthlyInterestRate, -numberOfPayments)));
+
+    let balance = loanAmount;
+    const schedule = [];
+
+    for (let i = 0; i < numberOfPayments; i++) {
+        const interestPayment = balance * monthlyInterestRate;
+        const principalPayment = monthlyPayment - interestPayment;
+        balance -= principalPayment;
+
+        schedule.push({
+            month: i + 1,
+            principal: principalPayment,
+            interest: interestPayment,
+            balance: balance > 0 ? balance : 0,
+        });
+    }
+
+    return schedule;
+  }
+
+=======
+>>>>>>> 7f1fe6d483b3580b1d12e3b284685f4b1b690054
   // Helper function for formatting expenses
   const formatExpenses = (report) => {
     const labelMap = {
@@ -85,6 +134,69 @@ const Page = () => {
 
   let projections = report ? generateProjections(report) : {};
   const formattedExpenses = report ? formatExpenses(report) : [];
+<<<<<<< HEAD
+  
+  // Chart data preparation
+  const months = schedule.map(item => item.month);
+  const principalPayments = schedule.map(item => item.principal);
+  const interestPayments = schedule.map(item => item.interest);
+
+  // Create the chart after the schedule is calculated
+  useEffect(() => {
+    if (schedule.length > 0) {
+      const ctx = document.getElementById('amortizationChart');
+      if (ctx) {
+        // Destroy the existing chart instance if it exists
+        if (chartInstance) {
+          chartInstance.destroy();
+        }
+
+        // Create a new chart instance
+        const newChartInstance = new Chart(ctx.getContext('2d'), {
+          type: 'line',
+          data: {
+            labels: months,
+            datasets: [
+              {
+                label: 'Principal Payment',
+                data: principalPayments,
+                borderColor: 'rgb(75, 192, 192)',
+                fill: false,
+              },
+              {
+                label: 'Interest Payment',
+                data: interestPayments,
+                borderColor: 'rgb(255, 99, 132)',
+                fill: false,
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              x: {
+                title: {
+                  display: true,
+                  text: 'Month'
+                }
+              },
+              y: {
+                title: {
+                  display: true,
+                  text: 'Amount'
+                }
+              }
+            }
+          }
+        });
+
+        // Update the chart instance state
+        setChartInstance(newChartInstance);
+      }
+    }
+  }, [schedule]);
+=======
+>>>>>>> 7f1fe6d483b3580b1d12e3b284685f4b1b690054
 
   return (
     <div className='h-full w-full bg-[#F1F2F2] p-3'>
@@ -168,6 +280,12 @@ const Page = () => {
                 </div>
                 <div className='h-full w-full rounded-lg border-2 border-[#D9D9D9] bg-[#FAFAFA] p-3 shadow-lg'>
                   <p>Amortization Schedule</p>
+<<<<<<< HEAD
+                  <div>
+                    <canvas id="amortizationChart" width="400" height="200"></canvas>
+                  </div>
+=======
+>>>>>>> 7f1fe6d483b3580b1d12e3b284685f4b1b690054
                 </div>
               </div>
             </div>
@@ -180,4 +298,8 @@ const Page = () => {
   );
 };
 
+<<<<<<< HEAD
 export default Page;
+=======
+export default Page;
+>>>>>>> 7f1fe6d483b3580b1d12e3b284685f4b1b690054

@@ -4,12 +4,9 @@ export async function POST(request) {
   try {
     const { username, email, password } = await request.json();
 
-    console.log({ username, email, password })
     // Check if the user already exists
     const existingUserUsername = await UserHandler.getUserByUsername(username);
     const existingUserEmail = await UserHandler.getUserByEmail(email);
-
-    console.log({existingUserUsername,existingUserEmail})
 
     if (existingUserEmail || existingUserUsername) {
       return new Response(JSON.stringify({ error: 'User already exists' }), {
