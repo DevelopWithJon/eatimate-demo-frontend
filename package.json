@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+version https://git-lfs.github.com/spec/v1
+oid sha256:0449e9d2d2e8edaff02522c4d49216d8b89f4420475d948b9f76313466d734b8
+size 1147
+=======
 {
   "name": "estimate-frontend",
   "version": "0.1.0",
@@ -39,3 +44,4 @@
     "typescript": "^4.9.5"
   }
 }
+>>>>>>> 7f1fe6d483b3580b1d12e3b284685f4b1b690054
