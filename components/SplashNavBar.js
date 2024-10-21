@@ -10,11 +10,14 @@ const SplashNavBar = () => {
       <h1 className='text-5xl text-light-accent'>EstiMate</h1>
 
       {/* Nav Menu - Large Screens */}
-      <div className='hidden flex-row gap-5 md:flex lg:gap-8'>
-        <a href='#' className='rounded-md px-3 py-2 text-lg text-light-body'>
-          Extension
+      <div className='rounded-md px-3 py-2 text-lg text-light-body'>
+      <a 
+        href='https://chromewebstore.google.com/detail/estimate-demo/ibgdanpaoapljanhifdofglnibahljbe?authuser=1&hl=en' 
+        target="_blank" 
+        rel="noopener noreferrer" // Security best practice
+      >Extension
         </a>
-        <a href='#' className='rounded-md px-3 py-2 text-lg text-light-body'>
+        <a href='/FAQ' className='rounded-md px-3 py-2 text-lg text-light-body'>
           FAQ
         </a>
         <a
