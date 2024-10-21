@@ -9,6 +9,7 @@ const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 
 export default function PaymentPage() {
     const [email, setEmail] = useState('');
+    const [skipTrial, setSkipTrial] = useState(false); // State to manage trial preference
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
     const router = useRouter();
@@ -26,7 +27,7 @@ export default function PaymentPage() {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ email }), // Send the email to the backend
+            body: JSON.stringify({ email, skipTrial }), // Send the email and trial preference to the backend
         });
 
         const sessionId = await response.json();
@@ -64,6 +65,34 @@ export default function PaymentPage() {
                             required
                             className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
                         />
+                    </div>
+
+                    <div className="mt-4">
+                        <span className="block text-sm font-medium text-gray-700">Free Trial</span>
+                        <div className="flex items-center">
+                            <input
+                                type="radio"
+                                id="trial-yes"
+                                name="trial"
+                                value="yes"
+                                checked={!skipTrial}
+                                onChange={() => setSkipTrial(false)}
+                                className="mr-2"
+                            />
+                            <label htmlFor="trial-yes" className="text-sm text-gray-600">Yes, I want a free 14 day trial</label>
+                        </div>
+                        <div className="flex items-center">
+                            <input
+                                type="radio"
+                                id="trial-no"
+                                name="trial"
+                                value="no"
+                                checked={skipTrial}
+                                onChange={() => setSkipTrial(true)}
+                                className="mr-2"
+                            />
+                            <label htmlFor="trial-no" className="text-sm text-gray-600">No, skip the trial</label>
+                        </div>
                     </div>
 
                     <button

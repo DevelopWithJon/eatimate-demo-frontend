@@ -5,19 +5,13 @@ import { useParams } from 'next/navigation';
 import ReportHighlight from '@components/ReportHighlight';
 import Formatter from '@lib/formatterClass';
 import { LineChart, DonutChart } from '@lib/chart';
-<<<<<<< HEAD
 import Chart from 'chart.js/auto'; // Ensure Chart.js is imported
-=======
->>>>>>> 7f1fe6d483b3580b1d12e3b284685f4b1b690054
 
 const Page = () => {
   const { id } = useParams();
   const [report, setReport] = useState(null);
-<<<<<<< HEAD
   const [schedule, setSchedule] = useState([]);
   const [chartInstance, setChartInstance] = useState(null); // State to hold the chart instance
-=======
->>>>>>> 7f1fe6d483b3580b1d12e3b284685f4b1b690054
 
   useEffect(() => {
     if (id) {
@@ -30,7 +24,6 @@ const Page = () => {
     }
   }, [id]);
 
-<<<<<<< HEAD
   useEffect(() => {
     if (report) {
       const calculatedSchedule = calculateAmortizationSchedule(report);
@@ -38,8 +31,6 @@ const Page = () => {
     }
   }, [report]);
 
-=======
->>>>>>> 7f1fe6d483b3580b1d12e3b284685f4b1b690054
   // Helper function to create full address
   const createFullAddress = (report) => {
     const { address, city, state, zip } = report;
@@ -68,7 +59,6 @@ const Page = () => {
     };
   };
 
-<<<<<<< HEAD
   function calculateAmortizationSchedule(report) {
     const { interest, all_loan_balance } = report;
     const loanTermYears = 30;
@@ -96,8 +86,6 @@ const Page = () => {
     return schedule;
   }
 
-=======
->>>>>>> 7f1fe6d483b3580b1d12e3b284685f4b1b690054
   // Helper function for formatting expenses
   const formatExpenses = (report) => {
     const labelMap = {
@@ -134,7 +122,6 @@ const Page = () => {
 
   let projections = report ? generateProjections(report) : {};
   const formattedExpenses = report ? formatExpenses(report) : [];
-<<<<<<< HEAD
   
   // Chart data preparation
   const months = schedule.map(item => item.month);
@@ -195,8 +182,6 @@ const Page = () => {
       }
     }
   }, [schedule]);
-=======
->>>>>>> 7f1fe6d483b3580b1d12e3b284685f4b1b690054
 
   return (
     <div className='h-full w-full bg-[#F1F2F2] p-3'>
@@ -239,7 +224,7 @@ const Page = () => {
               />
               <ReportHighlight
                 title={'Cash on Cash Return'}
-                value={Formatter.formatPercentage(projections.cashOnCashReturn)}
+                value={Formatter.formatPercentage(projections.cashOnCashReturn / 100)}
               />
             </div>
 
@@ -280,12 +265,9 @@ const Page = () => {
                 </div>
                 <div className='h-full w-full rounded-lg border-2 border-[#D9D9D9] bg-[#FAFAFA] p-3 shadow-lg'>
                   <p>Amortization Schedule</p>
-<<<<<<< HEAD
                   <div>
                     <canvas id="amortizationChart" width="400" height="200"></canvas>
                   </div>
-=======
->>>>>>> 7f1fe6d483b3580b1d12e3b284685f4b1b690054
                 </div>
               </div>
             </div>
@@ -298,8 +280,4 @@ const Page = () => {
   );
 };
 
-<<<<<<< HEAD
 export default Page;
-=======
-export default Page;
->>>>>>> 7f1fe6d483b3580b1d12e3b284685f4b1b690054

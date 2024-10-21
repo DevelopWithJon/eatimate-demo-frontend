@@ -4,6 +4,7 @@ import Image from 'next/image';
 import PropertiesView from '@components/PropertyView';
 import SignOutButton from '@components/SplashSignOutButton';
 import AlertBubble from '@/components/AlertBubble';
+import SideBar from '@components/SideBar'; // Import the Sidebar component
 
 export default function Page() {
   const [activeView, setActiveView] = useState('properties');
@@ -56,10 +57,8 @@ export default function Page() {
     <div className='flex h-full w-full flex-row bg-[#E7E5E5]'>
       {isAlertVisible && <AlertBubble message={error} onClose={() => setIsAlertVisible(false)} />}
       
-      {/* Sidebar */}
-      <div className='h-full w-[250px] bg-[#FAFAFA] px-3'>
-        {/* ... (rest of the sidebar code remains unchanged) ... */}
-      </div>
+      {/* Sidebar Component */}
+      <SideBar />
 
       <div className='flex h-full w-full flex-col'>
         <div className='relative flex h-[70px] w-full flex-row items-center justify-end bg-[#155E75] pr-24'>

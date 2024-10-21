@@ -21,16 +21,12 @@ export default function Page() {
 
         {/* Footer */}
         <div className='absolute bottom-0 flex w-full flex-row items-center justify-center gap-6 pb-3'>
-<<<<<<< HEAD
-        <p className="mb-2">© {new Date().getFullYear()} EstiMate. All rights reserved.</p>
+          <p className="mb-2">© {new Date().getFullYear()} EstiMate. All rights reserved.</p>
           <a href='privacy-policy' className='text-white'>
-=======
-          <p className='text-white'>
-            Copyright © 2024 EstiMate - All Rights Reserved
-          </p>
-          <a href='#' className='text-white'>
->>>>>>> 7f1fe6d483b3580b1d12e3b284685f4b1b690054
             Privacy Policy
+          </a>
+          <a href='https://discord.gg/RXmpKUqz' className='text-white' target="_blank" rel="noopener noreferrer">
+            Join our Discord
           </a>
         </div>
       </div>
